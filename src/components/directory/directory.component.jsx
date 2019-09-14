@@ -50,8 +50,12 @@ class Directory extends Component {
     render() {
         return <div className="directory-menu">
             {
-                this.state.sections.map(({title, id, imageUrl, size}) => (
+                /*this.state.sections.map(({title, id, imageUrl, size}) => (
                     <MenuItem key={id} title={title} imageUrl={imageUrl} size={size}/>
+                ))*/
+                //Another equivalent way to do it. Image we have to pass A LOT of props, this is the best way to pass them all together
+                this.state.sections.map(({id, ...otherProps}) => (
+                    <MenuItem key={id} {...otherProps}/>
                 ))
             }
         </div>
